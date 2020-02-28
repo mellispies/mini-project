@@ -1,0 +1,81 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    background-image: url(background-image.jpg);
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+    background-size: cover;
+  
+}
+
+.container {
+    margin: 0 auto;
+    width: 400px;
+    height:460px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    position: relative;
+    top: 10%;
+}
+
+.content {
+    padding: 5%;
+    font-family: 'Dosis', sans-serif;
+}
+
+#username, #password {
+    width: 100%;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(167, 167, 167);
+    margin-top: 10%;
+}
+
+#terms, #remember-me {
+    margin-top: 5%;
+}
+
+
+#terms-label { 
+    font-size: 10pt; 
+}
+
+#reset-password {
+    margin-top: 30%;
+    float: right;
+}
+
+#register {
+    width: 100%;
+    margin: 10% 0 5%;
+    height: 50px;
+    background-color: rgb(137, 137, 218);
+    border-radius: 5px;
+    border: 1px solid rgb(167, 167, 167);
+    color: white;
+    text-transform: uppercase;
+}
+
+#footer {
+    font-size: 11pt;
+}
+
+
+
+/* FOR MOBILE DEVICES */ 
+@media only screen and (max-width: 420px) {
+
+    .container {
+        width: 90%;
+        height: 70%;
+    }
+
+
+
+}
