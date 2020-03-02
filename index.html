@@ -20,7 +20,7 @@
             <div class="content">
 
                 <!-- LOGIN FORM -->
-                <div id="login-form">
+                <div id="login-form" class="hidden">
                     <form action="/login.php" method="POST">
                     <h3>Log In</h3>
                         <input type="text" placeholder="Enter your username" id="username">
@@ -36,17 +36,50 @@
 
                         </p>
 
+                    </form>           
+                </div>
+
+
+                <!--REGISTER FORM -->
+                <div id="register-form" class="hidden">
+                    <form action="/register.php" method="POST">
+                    <h3>Sign Up</h3>
+                        <input type="text" placeholder="Enter your username" id="username">
+                        <input type="password" placeholder="Enter your password" id="password">
+                        <input type="password" placeholder="Repeat password" id="password">
+                        <input type="checkbox" id="terms">
+                        <span id="terms-label"><label for="terms">Agree to Terms &amp; Conditions</label></span>
+
+                        <button type="submit" id="register">Register</button>
+
+                        <p id="footer">
+                            Already have an account?
+                            <a href="index.html">Sign In</a>
+
+                        </p>
+
                     </form>            
                </div>
 
+               <!-- RESET PASSWORD FORM -->
+               <div id="reset-form">
+                    <form action="/reset.php" method="POST">
+                        <h3>Reset Your Password</h3>
+                            <input type="text" placeholder="Username Or Email" id="username">
+                            <button type="submit" id="register">Reset</button>
 
-                </div>
+                            <p id="footer">
+                                <a href="#">Sign In</a>
+                                <a href="#" class="float-right">Sign Up</a>
+                            </p>
+
+                        </form>        
+               </div>
+
+
             </div>
         </div>
+        
     </div>
-
-
-
-
 </body>
 </html>
