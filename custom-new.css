@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+*:focus {
+    outline: none;
+}
+
 .wrapper {
     background-image: url(background-image.jpg);
     height: 100%;
@@ -45,10 +49,6 @@ body {
     font-size: 10pt; 
 }
 
-#reset-password {
-    margin-top: 30%;
-    float: right;
-}
 
 #register {
     width: 100%;
@@ -68,6 +68,10 @@ body {
 
 .hidden {
     display: none;
+}
+
+.show {
+    display: block;
 }
 
 .float-right {
