@@ -78,6 +78,10 @@ body {
     float: right;
 }
 
+.delete {
+    color: red;
+    cursor: pointer;
+}
 
 
 /* FOR MOBILE DEVICES */ 

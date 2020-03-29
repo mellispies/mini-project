@@ -77,6 +77,19 @@
                         </form>        
                </div>
 
+               <hr>
+               <h3>Audit</h3>
+
+               <table border = "1" width="100%">
+                   <thead id="actions-table">
+                       <th>ID</th>
+                       <th>Form</th>
+                       <th>Action</th>
+                       <th>Date / Time</th>
+                       <th> </th>
+                   </thead>
+               </table>
+
 
             </div>
         </div>
@@ -120,6 +133,62 @@
 
             document.getElementById(toShow).className = "show";
 
+            logAction(toShow);
+        }
+
+        function logAction(formName) {
+
+            let actions = localStorage.getItem("actions");
+
+            if ( actions ) {
+                actions = JSON.parse(actions);
+            } else {
+                actions = [];
+            }
+
+            let action = {
+                "id" : 1,
+                "form" : formName,
+                "action" : "Click",
+                "datetime" : new Date().toLocaleString(),
+            }
+
+            actions.push(action);
+
+            localStorage.setItem("actions", JSON.stringify(actions));
+
+            insertRowAction(action);
+
+        }
+
+        function insertRowAction ( action ) {
+
+            let table = document.getElementById("actions-table");
+
+            let row = table.insertRow();
+
+            let cellId = row.insertCell(0);
+            let cellForm = row.insertCell(1);
+            let cellAction = row.insertCell(2);
+            let cellDate = row.insertCell(3);
+            let cellDelete = row.insertCell(4); 
+
+            cellId.innerHTML = action.id;
+            cellForm.innerHTML = action.form;
+            cellAction.innerHTML = action.action;
+            cellDate.innerHTML = action.datetime;
+            cellDelete.innerHTML = "x";
+            cellDelete.className = "delete";
+            cellDelete.onclick = function () {
+                deleteRow(row);
+            }
+
+        }
+
+
+
+        function deleteRow(row) {
+           row.remove();
         }
 
     </script>
