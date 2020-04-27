@@ -139,15 +139,17 @@
         function logAction(formName) {
 
             let actions = localStorage.getItem("actions");
+            let id = 1;
 
             if ( actions ) {
                 actions = JSON.parse(actions);
+                id = actions[actions.length - 1].id + 1;
             } else {
                 actions = [];
             }
 
             let action = {
-                "id" : 1,
+                "id" : id,
                 "form" : formName,
                 "action" : "Click",
                 "datetime" : new Date().toLocaleString(),
@@ -180,16 +182,51 @@
             cellDelete.innerHTML = "x";
             cellDelete.className = "delete";
             cellDelete.onclick = function () {
-                deleteRow(row);
+                deleteRow(row, action.id);
             }
 
         }
 
 
 
-        function deleteRow(row) {
+        function deleteRow(row, id) {
            row.remove();
+           let actions = localStorage.getItem("actions");
+           actions = JSON.parse(actions);
+
+           actions.forEach( function (action, i) {
+               if( action.id == id) {
+                   actions.splice(i, 1);
+
+               }
+
+           });
+
+           localStorage.setItem("actions", JSON.stringify(actions));
+
+           if( actions.length == 0) {
+               localStorage.removeItem("actions");
+           }
+
         }
+
+
+        function renderActions() {
+
+            let actions = localStorage.getItem("actions");
+            
+            if (actions) {
+            
+                actions = JSON.parse(actions);
+                actions.forEach(function(action){
+                    insertRowAction(action);
+                });
+            }
+
+        }
+
+        renderActions();
+
 
     </script>
 
